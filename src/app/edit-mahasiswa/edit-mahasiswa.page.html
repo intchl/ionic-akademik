@@ -1,0 +1,51 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="ion-page">
+  <ion-content [fullscreen]="true">
+    <ion-header
+      collapse="condense"
+      style="padding-top: 30px; padding-left: 10px"
+    >
+      <ion-toolbar>
+        <div style="display: flex">
+          <ion-icon
+            style="font-size: 25px; margin-right: 20px"
+            name="arrow-back-outline"
+            [routerLink]="['/../list-mahasiswa/']"
+          ></ion-icon>
+          <h3 style="margin: 0">Edit Mahasiswa</h3>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list lines="full">
+      <form [formGroup]="updateMahasiswaForm" (ngSubmit)="updateForm()">
+        <ion-item>
+          <ion-label position="floating">Nama Mahasiswa</ion-label>
+          <ion-input formControlName="nama_ms" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">NIM</ion-label>
+          <ion-input formControlName="nim" type="text" required> </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Semester</ion-label>
+          <ion-input formControlName="sms" type="text" required> </ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <div class="buttons">
+              <ion-button type="submit" class="buttons" expand="block"
+                >Update Mahasiswa</ion-button
+              >
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-list>
+  </ion-content>
+</div>

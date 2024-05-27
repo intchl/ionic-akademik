@@ -1,0 +1,102 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="ion-page">
+  <ion-header [translucent]="true"> </ion-header>
+  <ion-content [fullscreen]="true">
+    <ion-header
+      collapse="condense"
+      style="padding-top: 30px; padding-left: 10px"
+    >
+      <ion-toolbar>
+        <div style="display: flex">
+          <ion-icon
+            name="arrow-back-outline"
+            [routerLink]="['/tabs/tab1/']"
+          ></ion-icon>
+          <h3>Dosen</h3>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+      <ion-item-sliding *ngFor="let Dosen of Dosens" class="user-list">
+        <ion-item-options side="start">
+          <ion-item-option
+            [routerLink]="['/edit-dosen/', Dosen.$key]"
+            color="primary"
+          >
+            <ion-icon slot="icon-only" name="pencil"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteDosen(Dosen.$key)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="profile" src="../../assets/Avatars.png" />
+          </ion-thumbnail>
+          <ion-label
+            ><h6>{{Dosen.nama_d}}</h6>
+            <p style="text-transform: uppercase">{{Dosen.nidn}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button id="open-modal-add-dosen">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-modal
+      #modal
+      trigger="open-modal-add-dosen"
+      [presentingElement]="presentingElement"
+    >
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Tambah</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="canDismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-list lines="full">
+            <form [formGroup]="dosenForm" (ngSubmit)="formSubmit()">
+              <ion-item>
+                <ion-label position="floating">Nama Dosen</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="nama_d"
+                  required
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">NIDN</ion-label>
+                <ion-input type="text" formControlName="nidn" required>
+                </ion-input>
+              </ion-item>
+              <ion-row>
+                <ion-col>
+                  <div class="buttons">
+                    <ion-button class="buttons" type="submit" expand="block"
+                      ><p>Tambah Dosen</p></ion-button
+                    >
+                  </div>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</div>

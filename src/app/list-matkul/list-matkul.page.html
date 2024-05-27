@@ -1,0 +1,124 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="ion-page">
+  <ion-content [fullscreen]="true">
+    <ion-header
+      collapse="condense"
+      style="padding-top: 30px; padding-left: 10px"
+    >
+      <ion-toolbar>
+        <div style="display: flex">
+          <ion-icon
+            name="arrow-back-outline"
+            [routerLink]="['/tabs/tab1/']"
+          ></ion-icon>
+          <h3>Mata Kuliah</h3>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+      <ion-item-sliding *ngFor="let matkul of Matkuls" class="user-list">
+        <ion-item-options side="start">
+          <ion-item-option
+            [routerLink]="['/edit-matkul/', matkul.$key]"
+            color="primary"
+          >
+            <ion-icon slot="icon-only" name="pencil"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteMatkul(matkul.$key)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        <ion-item>
+          <ion-label>
+            <h6>{{matkul.nama_mk}}</h6>
+            <p style="text-transform: uppercase">
+              {{matkul.kode_mk}} - {{matkul.sks}} SKS
+            </p>
+            <p>Semester {{matkul.sms}}</p>
+            <p *ngIf="getDosenName(matkul.dosen)">
+              <ion-icon name="person"></ion-icon> {{ getDosenName(matkul.dosen)
+              }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button id="open-modal-add-matkul">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-modal
+      #modal
+      trigger="open-modal-add-matkul"
+      [presentingElement]="presentingElement"
+    >
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Tambah</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="canDismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-list lines="full">
+            <form [formGroup]="matkulForm" (ngSubmit)="formSubmit()">
+              <ion-item>
+                <ion-label position="floating">Nama MK</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="nama_mk"
+                  required
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Kode MK</ion-label>
+                <ion-input type="text" formControlName="kode_mk" required>
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Semester</ion-label>
+                <ion-input type="text" formControlName="sms" required>
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">SKS</ion-label>
+                <ion-input type="text" formControlName="sks" required>
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Dosen</ion-label>
+                <ion-select formControlName="dosen" required>
+                  <ion-select-option
+                    *ngFor="let dosen of Dosens"
+                    [value]="dosen.$key"
+                  >
+                    {{ dosen.nama_d }}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-row>
+                <ion-col>
+                  <ion-button class="tambah" type="submit" expand="block"
+                    >Tambah Matkul</ion-button
+                  >
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</div>

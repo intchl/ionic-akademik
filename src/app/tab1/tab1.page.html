@@ -1,0 +1,39 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<ion-content class="ion-padding">
+  <div class="heading">
+    <p>Welcome</p>
+  </div>
+  <div class="header ion-padding-horizontal">
+    <img src="../../assets/girl.png" alt="Gambar" class="gambar" />
+    <div class="text-header1">Lets Learn</div>
+    <div class="text-header2">More</div>
+    <div class="text-sub">Get Started</div>
+  </div>
+  <div class="text">
+    <p>Categories</p>
+  </div>
+  <!-- ubah menjadi button yang bisa mengarah ke laman sesuai judul -->
+  <div class="categories" style="margin-bottom: 10px">
+    <div class="content" [routerLink]="['/../list-mahasiswa/']">
+      Mahasiswa<img src="../../assets/mahasiswa.png" alt="Gambar" class="mhs" />
+    </div>
+    <div class="content" [routerLink]="['/../list-dosen/']">
+      Dosen<img src="../../assets/dosen.png" alt="Gambar" class="ds" />
+    </div>
+  </div>
+  <div class="categories">
+    <div class="content" [routerLink]="['/../list-matkul']">
+      Matkul<img src="../../assets/matkul.png" alt="Gambar" class="mk" />
+    </div>
+    <div class="content" [routerLink]="['/../list-krs']">
+      KRS<img src="../../assets/krs.png" alt="Gambar" class="krs" />
+    </div>
+  </div>
+  <a href=""></a>
+</ion-content>

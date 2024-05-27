@@ -1,0 +1,43 @@
+// font-family: "Poppins", sans-serif;
+:root {
+  --white: #f5f5f5;
+  --black: #151515;
+  --blue: #4bb1ea;
+}
+
+ion-content,
+ion-toolbar,
+ion-item {
+  background-color: var(--white);
+}
+
+ion-toolbar {
+  display: flex;
+  color: var(--black);
+  ion-icon {
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+ion-item {
+  ion-label {
+    font-family: "Poppins", sans-serif;
+  }
+  ion-input {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.buttons {
+  ion-button {
+    font-family: "Poppins", sans-serif;
+    border-radius: 20px;
+    margin-top: 16px;
+    --background: #4bb1ea;
+  }
+}

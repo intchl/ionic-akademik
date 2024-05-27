@@ -1,0 +1,44 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<ion-content>
+  <div class="login ion-padding">
+    <div class="heading">
+      <h1>Hello <br /><span>Login to your account</span></h1>
+    </div>
+  </div>
+  <div class="home-section">
+    <div class="title">
+      <h1>Edu<span>Portal</span></h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="ion-padding">
+        <ion-item>
+          <ion-input placeholder="email" formControlName="email"></ion-input>
+          <ion-icon name="person-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            placeholder="password"
+            type="password"
+            formControlName="password"
+          ></ion-input>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </ion-item>
+      </div>
+      <div class="buttons ion-padding-start ion-padding-end">
+        <ion-button type="submit"> <p>Login</p></ion-button>
+      </div>
+    </form>
+    <div class="buttons ion-padding-start ion-padding-end">
+      <h6>
+        Didn't have an account?
+        <a href=" " [routerLink]="['../register']">Sign up here</a>
+      </h6>
+    </div>
+  </div>
+</ion-content>
