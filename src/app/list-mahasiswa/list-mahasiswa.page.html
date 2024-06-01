@@ -6,21 +6,18 @@
 />
 
 <div class="ion-page">
+  <ion-header>
+    <ion-toolbar class="ios hydrated">
+      <div style="display: flex; padding-left: 10px">
+        <ion-icon
+          name="arrow-back-outline"
+          [routerLink]="['/tabs/tab1/']"
+        ></ion-icon>
+        <h3>Student List</h3>
+      </div>
+    </ion-toolbar>
+  </ion-header>
   <ion-content [fullscreen]="true">
-    <ion-header
-      collapse="condense"
-      style="padding-top: 30px; padding-left: 10px"
-    >
-      <ion-toolbar>
-        <div style="display: flex">
-          <ion-icon
-            name="arrow-back-outline"
-            [routerLink]="['/tabs/tab1/']"
-          ></ion-icon>
-          <h3>Mahasiswa</h3>
-        </div>
-      </ion-toolbar>
-    </ion-header>
     <ion-list>
       <ion-item-sliding *ngFor="let Mahasiswa of Mahasiswas" class="user-list">
         <ion-item-options side="start">
@@ -65,7 +62,7 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Tambah</ion-title>
+            <ion-title>Add Student</ion-title>
             <ion-buttons slot="end">
               <ion-button (click)="canDismiss()">Close</ion-button>
             </ion-buttons>
@@ -75,7 +72,7 @@
           <ion-list lines="full">
             <form [formGroup]="MahasiswaForm" (ngSubmit)="formSubmit()">
               <ion-item>
-                <ion-label position="floating">Nama Mahasiswa</ion-label>
+                <ion-label position="floating">Student Name</ion-label>
                 <ion-input
                   type="text"
                   formControlName="nama_ms"
@@ -96,7 +93,7 @@
                 <ion-col>
                   <div class="buttons">
                     <ion-button class="buttons" type="submit" expand="block"
-                      ><p>Tambah Mahasiswa</p></ion-button
+                      ><p>Add Student</p></ion-button
                     >
                   </div>
                 </ion-col>

@@ -1,0 +1,7 @@
+{
+  "appId": "com.example.myapp",
+  "appName": "EduPortal",
+  "bundledWebRuntime": false,
+  "webDir": "www",
+  "cordova": {}
+}

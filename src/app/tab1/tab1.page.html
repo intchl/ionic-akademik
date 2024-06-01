@@ -10,30 +10,40 @@
     <p>Welcome</p>
   </div>
   <div class="header ion-padding-horizontal">
-    <img src="../../assets/girl.png" alt="Gambar" class="gambar" />
-    <div class="text-header1">Lets Learn</div>
-    <div class="text-header2">More</div>
-    <div class="text-sub">Get Started</div>
+    <div class="gambar">
+      <img src="../../assets/laptop.png" alt="Gambar" />
+    </div>
+    <div class="text-header">
+      EduPortal<br />
+      One for All<br />
+      <span>Get Started</span>
+    </div>
   </div>
   <div class="text">
     <p>Categories</p>
   </div>
-  <!-- ubah menjadi button yang bisa mengarah ke laman sesuai judul -->
   <div class="categories" style="margin-bottom: 10px">
     <div class="content" [routerLink]="['/../list-mahasiswa/']">
-      Mahasiswa<img src="../../assets/mahasiswa.png" alt="Gambar" class="mhs" />
+      Student<br /><img
+        src="../../assets/mahasiswa.png"
+        alt="Gambar"
+        class="mhs"
+      />
     </div>
     <div class="content" [routerLink]="['/../list-dosen/']">
-      Dosen<img src="../../assets/dosen.png" alt="Gambar" class="ds" />
+      Lecturer<br /><img src="../../assets/dosen.png" alt="Gambar" class="ds" />
     </div>
   </div>
   <div class="categories">
     <div class="content" [routerLink]="['/../list-matkul']">
-      Matkul<img src="../../assets/matkul.png" alt="Gambar" class="mk" />
+      Subject<br /><img src="../../assets/matkul.png" alt="Gambar" class="mk" />
     </div>
     <div class="content" [routerLink]="['/../list-krs']">
-      KRS<img src="../../assets/krs.png" alt="Gambar" class="krs" />
+      Study Plan<br /><img
+        src="../../assets/krs.png"
+        alt="Gambar"
+        class="krs"
+      />
     </div>
   </div>
-  <a href=""></a>
 </ion-content>

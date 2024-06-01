@@ -6,21 +6,18 @@
 />
 
 <div class="ion-page">
+  <ion-header>
+    <ion-toolbar class="ios hydrated">
+      <div style="display: flex; padding-left: 10px">
+        <ion-icon
+          name="arrow-back-outline"
+          [routerLink]="['/tabs/tab1/']"
+        ></ion-icon>
+        <h3>Subject List</h3>
+      </div>
+    </ion-toolbar>
+  </ion-header>
   <ion-content [fullscreen]="true">
-    <ion-header
-      collapse="condense"
-      style="padding-top: 30px; padding-left: 10px"
-    >
-      <ion-toolbar>
-        <div style="display: flex">
-          <ion-icon
-            name="arrow-back-outline"
-            [routerLink]="['/tabs/tab1/']"
-          ></ion-icon>
-          <h3>Mata Kuliah</h3>
-        </div>
-      </ion-toolbar>
-    </ion-header>
     <ion-list>
       <ion-item-sliding *ngFor="let matkul of Matkuls" class="user-list">
         <ion-item-options side="start">
@@ -65,7 +62,7 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Tambah</ion-title>
+            <ion-title>Add Subject</ion-title>
             <ion-buttons slot="end">
               <ion-button (click)="canDismiss()">Close</ion-button>
             </ion-buttons>
@@ -75,7 +72,7 @@
           <ion-list lines="full">
             <form [formGroup]="matkulForm" (ngSubmit)="formSubmit()">
               <ion-item>
-                <ion-label position="floating">Nama MK</ion-label>
+                <ion-label position="floating">Subject Name</ion-label>
                 <ion-input
                   type="text"
                   formControlName="nama_mk"
@@ -83,7 +80,7 @@
                 ></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label position="floating">Kode MK</ion-label>
+                <ion-label position="floating">Subject Code</ion-label>
                 <ion-input type="text" formControlName="kode_mk" required>
                 </ion-input>
               </ion-item>
@@ -98,7 +95,7 @@
                 </ion-input>
               </ion-item>
               <ion-item>
-                <ion-label position="floating">Dosen</ion-label>
+                <ion-label position="floating">Lecturer</ion-label>
                 <ion-select formControlName="dosen" required>
                   <ion-select-option
                     *ngFor="let dosen of Dosens"
@@ -111,7 +108,7 @@
               <ion-row>
                 <ion-col>
                   <ion-button class="tambah" type="submit" expand="block"
-                    >Tambah Matkul</ion-button
+                    >Add Subject</ion-button
                   >
                 </ion-col>
               </ion-row>
